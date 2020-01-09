@@ -30,12 +30,40 @@ public class Player : Node2D
             Vector2 temp = Position;
             temp.x -= moveSpeed * delta;
             Position = temp;
+
+            WalkRight(false);
         }
         else if (Input.IsActionPressed("right"))
         {
             Vector2 temp = Position;
             temp.x += moveSpeed * delta;
             Position = temp;
+
+            WalkRight(true);
         }
+        else
+        {
+            PlayIdle();
+        }
+    }
+
+    private void WalkRight(bool isRight)
+    {
+        idleSprite.SetVisible(false);
+        walkSprite.SetVisible(true);
+
+        walkAnimation.Play("Walk");
+
+        walkSprite.FlipH = !isRight;
+    }
+
+    private void PlayIdle()
+    {
+        idleSprite.SetVisible(true);
+        walkSprite.SetVisible(false);
+
+        idleSprite.FlipH = walkSprite.FlipH;
+
+        idleAnimation.Play("Idle");
     }
 }

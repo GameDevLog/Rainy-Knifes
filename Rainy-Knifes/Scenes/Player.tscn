@@ -38,13 +38,13 @@ tracks/0/keys = {
 }
 
 [node name="Player" type="Node2D"]
-position = Vector2( 240, 480 )
+scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 1 )
 
 [node name="Idle" type="Sprite" parent="."]
-scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
 hframes = 2
+frame = 1
 
 [node name="IdleAnimation" type="AnimationPlayer" parent="."]
 anims/Idle = SubResource( 1 )

@@ -8,13 +8,16 @@ extents = Vector2( 14.2437, 119.4 )
 
 [node name="Knife" type="Node2D"]
 scale = Vector2( 0.5, 0.5 )
+z_index = 3
 script = ExtResource( 1 )
 
 [node name="Knife" type="Sprite" parent="."]
 rotation = -1.5708
 texture = ExtResource( 2 )
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=[
+"Knife",
+]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( -0.215302, -0.389061 )

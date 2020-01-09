@@ -11,6 +11,8 @@ public class Player : Node2D
 
     [Export]
     float moveSpeed = 500f;
+
+    private Main mainScript;
 	
     public override void _Ready()
     {
@@ -19,6 +21,8 @@ public class Player : Node2D
 
         idleAnimation = GetNode<AnimationPlayer>("IdleAnimation");
         walkAnimation = GetNode<AnimationPlayer>("WalkAnimation");
+
+        mainScript = GetParent<Main>();
     }
 
     public override void _Process(float delta)
@@ -65,5 +69,14 @@ public class Player : Node2D
         idleSprite.FlipH = walkSprite.FlipH;
 
         idleAnimation.Play("Idle");
+    }
+
+    private void _OnCollisionEntered(Area2D area)
+    {
+        if (area.IsInGroup("Knife"))
+        {
+            mainScript.PlayerDied();
+            QueueFree();
+        }
     }
 }

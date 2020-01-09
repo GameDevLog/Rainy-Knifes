@@ -16,30 +16,34 @@ scale = Vector2( 0.67, 0.63 )
 texture = ExtResource( 3 )
 
 [node name="GroundParent" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="ground" type="Sprite" parent="GroundParent"]
 position = Vector2( 46.665, 740 )
 scale = Vector2( 0.67, 0.63 )
+z_index = 1
 texture = ExtResource( 4 )
 
 [node name="ground2" type="Sprite" parent="GroundParent"]
 position = Vector2( 176.665, 741.19 )
 scale = Vector2( 0.67, 0.63 )
+z_index = 1
 texture = ExtResource( 4 )
 
 [node name="ground3" type="Sprite" parent="GroundParent"]
 position = Vector2( 303.33, 741.295 )
 scale = Vector2( 0.67, 0.63 )
+z_index = 1
 texture = ExtResource( 4 )
 
 [node name="ground4" type="Sprite" parent="GroundParent"]
 position = Vector2( 430.241, 741.19 )
 scale = Vector2( 0.67, 0.63 )
+z_index = 1
 texture = ExtResource( 4 )
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
 position = Vector2( 260, 640 )
+z_index = 2
 
 [node name="MinX" type="Position2D" parent="."]
 position = Vector2( 10, -50 )
@@ -50,4 +54,6 @@ position = Vector2( 470, -50 )
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.7
 autostart = true
+
+[node name="RestartTimer" type="Timer" parent="."]
 [connection signal="timeout" from="Timer" to="." method="_OnTimerTimeout"]

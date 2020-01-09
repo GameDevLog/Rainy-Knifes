@@ -65,3 +65,4 @@ anims/Walk = SubResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 3 )
+[connection signal="area_entered" from="Area2D" to="." method="_OnCollisionEntered"]
